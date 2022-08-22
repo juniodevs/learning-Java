@@ -1,8 +1,10 @@
 import java.util.Scanner;
 
 public class lerDados2 {
+    private static Scanner leitor;
+
     public static void main(String[] args) {
-        Scanner leitor = new Scanner(System.in);
+        leitor = new Scanner(System.in);
         String valor;
         int numero1;
         int numero2;
