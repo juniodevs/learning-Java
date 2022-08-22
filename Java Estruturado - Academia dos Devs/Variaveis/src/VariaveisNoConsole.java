@@ -1,4 +1,4 @@
-public class App2 {
+public class VariaveisNoConsole {
     public static void main(String[] args) {
         String nomeCompleto;
         nomeCompleto = "Son Goku";
