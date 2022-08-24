@@ -20,5 +20,12 @@ public class Condicoes {
         {
             System.out.println("Está chovendo");
         }
+
+        String video = "JoJo";
+
+        String categoria = (video == "JoJo") ? "anime" : "série";
+
+        System.out.println(categoria);
+
     }
 }
