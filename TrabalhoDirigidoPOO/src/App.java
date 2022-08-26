@@ -25,7 +25,7 @@ public class App {
         System.out.format("Bota de Número %d\n", i+1);
         System.out.println("Digite D - Direito ou E - Esquerdo"); // Pegar pé da Bota
         DouE[i] = pegarDados.next().charAt(0);
-            if (DouE[i] == 'D' || DouE[i] == 'E') {    
+            if (DouE[i] == 'D' || DouE[i] == 'E') {
             }
             else
             {
@@ -49,13 +49,15 @@ public class App {
                 if(DouE[i] == 'E' && DouE[j] == 'D')
                 {
                     numeroDePares++;
+                    DouE[i] = ' ';
+                    DouE[j] = ' '; // Para não ocorrer de formar par com uma bota que já foi formada
                 }
             }
                 j++;
             }
             j = 0;
         }
-        System.out.println("SAÍDA");
+        System.out.println("\nSAÍDA");
         System.out.format("\nVocê tem %d pares feitos\n\n", numeroDePares);
     }
     else
