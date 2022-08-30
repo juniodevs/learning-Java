@@ -1,0 +1,4 @@
+E -> ENCAPSULAMENTO (Padrão de Código - Segurança no Código)
+H -> HERANÇA (Herdar Informação de Outras Classes)
+P -> POLIMORFISMO (Um Objeto se comporta de forma diferente para determinada ação)
+A -> ABSTRAÇÃO (Pegar Informações Relevantes)
