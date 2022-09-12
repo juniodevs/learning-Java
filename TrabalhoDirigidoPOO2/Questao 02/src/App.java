@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Random gerar = new Random();
         int impar = 0, par = 0, neutro = 0, positivo = 0, negativo = 0;
         
         Scanner scanner = new Scanner(System.in);
@@ -13,8 +12,7 @@ public class App {
         int[]A = new int [N];
 
         for (int i = 0; i < A.length; i++) {
-            A[i] = gerar.nextInt(100) - 50;
-            System.out.println(A[i]);
+            A[i] = scanner.nextInt();
             if (A[i] == 0){
                 neutro++;
             }
