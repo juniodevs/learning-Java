@@ -10,7 +10,7 @@ public class App {
 		{
 			String entradas = inputar.nextLine();
 			try {
-				
+				S
 				String[] values = entradas.split(" "); // Splitar os valores
 				for (int i = 0; i < values.length; i++) {
 					numeros[i] = Integer.parseInt(values[i]); 
