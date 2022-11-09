@@ -2,8 +2,6 @@ package Entities;
 
 public abstract class Pessoa {
     public String Nome;
-
-
     public Pessoa()
     {}
     public Pessoa(String nome)
