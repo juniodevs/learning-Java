@@ -1,121 +1,109 @@
-
-import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
-import java.util.TimeZone;
+import java.util.Calendar;
+import java.util.Objects;
 
-import Expections.DominiExpection;
-
-/**
- * Funcionario
- */
 public class Funcionario {
+	String Cpf;
+	String Nome;
+	char Sexo;
+	double Salario;
+	GregorianCalendar Nascimento;
+	GregorianCalendar Admissao;
 
-    private String Cpf;
-    private String Nome;
-    private char Sexo;
-    private double SalarioBruto;
-    private GregorianCalendar DataDeNascimento;
-    private GregorianCalendar DataDeAdmissao;
+	public Funcionario() {
+		Admissao = new GregorianCalendar();
+	}
+	
+	public Funcionario (String cpf, String nome, GregorianCalendar adimissao) {
+		Cpf = cpf;
+		Nome = nome;
+		Admissao = adimissao;
+	}
+	
+	public Funcionario (String cpf, String nome, float salario, char sexo, GregorianCalendar admissao, GregorianCalendar nascimento) {
+		Cpf = cpf;
+		Nome = nome;
+		Salario = salario;
+		Sexo = sexo;
+		Admissao = admissao;
+		Nascimento = nascimento;
+	}
+	
+	public boolean VerificiarCPF () {	
+		if(Cpf.length() >= 14)
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean VerificarDataDeNascimento () {	
+		if(Nascimento.get(Calendar.YEAR) > 1920)
+			return true;
+		else
+			return false;
+	}
+		
+	public boolean VerificarAdmissao () {
+		if(Admissao.get(Calendar.YEAR) > 1995)
+			return true;
+		else
+			return false;
+	}
+	
+	public static Integer getIdade(GregorianCalendar data) {
+		Calendar DataSistema = Calendar.getInstance();
+		int mes = DataSistema.get(Calendar.MONTH) - data.get(Calendar.MONTH);
+		int dia = DataSistema.get(Calendar.DAY_OF_MONTH) - data.get(Calendar.DAY_OF_MONTH);
+		int idade = (DataSistema.get(Calendar.YEAR) - data.get(Calendar.YEAR));
+		
+		if(mes < 0 || (mes == 0 && dia < 0))
+			idade--;
 
-    public Funcionario()
-    {
-        DataDeAdmissao.setTimeZone(TimeZone.getTimeZone("UTC"));
-
-    }
-    public Funcionario(String cpf, String nome, GregorianCalendar datadeAdimissao)
-    {
-        Cpf = cpf;
-        Nome = nome;
-        DataDeAdmissao = datadeAdimissao;
-    }
-    public Funcionario(String cpf, String nome, char sexo, double salario, GregorianCalendar datadeAdimissao, GregorianCalendar dataDeNascimento)
-    {
-        Cpf = cpf;
-        Nome = nome;
-        Sexo = sexo;
-        SalarioBruto = salario;
-        DataDeAdmissao = datadeAdimissao;
-        DataDeNascimento = dataDeNascimento;
-    }
-
-    public String getCpf() {
-        return Cpf;
-    }
-
-    public void setCpf(String Cpf) {
-        this.Cpf = Cpf;
-    }
-    public String getNome() {
-        return Nome;
-    }
-    public void setNome(String Nome) {
-        this.Nome = Nome;
-    }
-    public char getSexo() {
-        return Sexo;
-    }
-    public void setSexo(char Sexo) {
-        this.Sexo = Sexo;
-    }
-    public double getSalarioBruto() {
-        return SalarioBruto;
-    }
-    public void setSalarioBruto(double SalarioBruto) {
-        this.SalarioBruto = SalarioBruto;
-    }
-    public GregorianCalendar getDataDeNascimento() {
-        return DataDeNascimento;
-    }
-    public void setDataDeNascimento(GregorianCalendar DataDeNascimento) {
-        this.DataDeNascimento = DataDeNascimento;
-    }
-    public GregorianCalendar getDataDeAdmissao() {
-        return DataDeAdmissao;
-    }
-    public void setDataDeAdmissao(GregorianCalendar DataDeAdmissao) {
-        this.DataDeAdmissao = DataDeAdmissao;
-    }
-
-    //Método de validar CPF
-    public void validarCPF(String CPF) throws DominiExpection
-    {
-        if(CPF.length() < 14)
-        {
-            Cpf = CPF;
-        }
-        else
-        {
-            throw new DominiExpection("Error!, CPF precisa ser maior que 14 Caracteres");
-        }
-    }
-
-    //Método validar Data de Nascimento
-    public void validarDatadeNascimento(GregorianCalendar datanascimento) throws DominiExpection
-    {
-
-        int year = datanascimento.YEAR;
-        if(year < 1920)
-        {
-            DataDeNascimento = datanascimento;
-        }
-        else
-        {
-            throw new DominiExpection("Error!, Ninguém nasceu antes de 1920");
-        }
-    }
-    //Método validar Data de Adimissão
-    public void validarDatadeAdmissao(GregorianCalendar dataadimissao) throws DominiExpection
-    {
-        int year = dataadimissao.YEAR;
-
-        if(year <= 1995 )
-        {
-            DataDeAdmissao = dataadimissao;
-        }
-        else
-        {
-            throw new DominiExpection("Error!, A empresa foi fundada em 1995");
-        }
-    }
-
+		return idade;
+	}
+	
+	public float SalarioLiquido() {
+		float salario_liquido;
+		
+		if(Salario <=3000)
+			salario_liquido = (float) (Salario- (0.17*Salario));
+		else
+			salario_liquido = (float) (Salario - (0.27*Salario));
+		
+		return salario_liquido;
+	}
+	
+	public String toString () {
+		return "Nome: " 
+        + Nome 
+        + "\nCpf: " 
+        + Cpf + "\nSalario: R$" 
+        + Salario 
+        + "\nSexo: " 
+        + Sexo
+        + "\nData de Nascimento: "
+		+ Nascimento.get(Calendar.DAY_OF_MONTH) 
+        + "/" 
+        + Nascimento.get(Calendar.MONTH) 
+        + "/" 
+        + Nascimento.get(Calendar.YEAR) 
+		+ "\nData de Admissão: " 
+        + Admissao.get(Calendar.DAY_OF_MONTH) 
+        + "/" 
+        + Admissao.get(Calendar.MONTH) 
+        + "/" 
+        + Admissao.get(Calendar.YEAR);
+	}
+	
+	@Override
+	public boolean equals (Object objeto) {
+		if (this == objeto)
+			return true;
+		if (getClass()!= objeto.getClass())
+			return false;
+		
+		Funcionario outro = (Funcionario) objeto;
+		return Objects.equals(Cpf, outro.Cpf) && Objects.equals(Nome, outro.Nome) && Sexo == outro.Sexo;
+	}
 }
+
