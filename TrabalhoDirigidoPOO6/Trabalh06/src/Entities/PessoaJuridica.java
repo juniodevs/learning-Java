@@ -39,7 +39,7 @@ public class PessoaJuridica extends Pessoa {
         + "Data de Criacao: " 
         + DataCriacao;
     }
-    
+
     //
     @Override
     public int CalcularIdade() {
@@ -48,6 +48,9 @@ public class PessoaJuridica extends Pessoa {
 
     @Override
     public boolean ValidarDocumento() {
+        if (Cnpj.length() == 18)
+        return true;
+        else
         return false;
     }
 }
