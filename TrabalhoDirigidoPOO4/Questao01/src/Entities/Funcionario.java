@@ -28,6 +28,24 @@ public class Funcionario {
 		Admissao = admissao;
 		Nascimento = nascimento;
 	}
+
+	public String getCpf() {
+		return Cpf;
+	}
+
+	public String getNome() {
+		return Nome;
+	}
+
+	public char getSexo() {
+		return Sexo;
+	}
+	public GregorianCalendar getNascimento() {
+		return Nascimento;
+	}
+	public GregorianCalendar getAdmissao() {
+		return Admissao;
+	}
 	
 	public boolean VerificiarCPF () {	
 		if(Cpf.length() >= 14)
@@ -72,7 +90,24 @@ public class Funcionario {
 		
 		return salario_liquido;
 	}
-	
+
+	public double getBonificacao() {
+		double salarioComBonificacao = (2 / 100) * 12 * SalarioLiquido();
+		return salarioComBonificacao;
+	}
+
+	public GregorianCalendar dataDeAposentadoria() {
+		int anoDaAdmissao = Nascimento.get(Calendar.YEAR);
+		int mesDaAdmissao = Nascimento.get(Calendar.MONTH);
+		int diaDaAdmissao = Nascimento.get(Calendar.DAY_OF_MONTH);
+
+		if (getSexo() == 'M')
+			anoDaAdmissao += 35;
+		else if (getSexo() == 'F')
+			anoDaAdmissao += 30;
+		GregorianCalendar aposentados = new GregorianCalendar(anoDaAdmissao, mesDaAdmissao, diaDaAdmissao);
+		return aposentados;
+	}
 	public String toString () {
 		return "Nome: " 
         + Nome 

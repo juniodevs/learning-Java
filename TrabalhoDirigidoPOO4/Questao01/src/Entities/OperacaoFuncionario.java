@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 
 public class OperacaoFuncionario extends Funcionario {
@@ -109,6 +110,28 @@ public class OperacaoFuncionario extends Funcionario {
         + " e tem " 
         + menorIdade 
         + " anos.\n");
+	}
+	public static void DatasDeAposentadoria(Funcionario[] funcionarios) {
+		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+		System.out.println("Data dos Aposentados da Empresa");
+
+		for (Funcionario funcionario : funcionarios) {
+			System.out.println(
+					funcionario.getNome()
+					+ ": "
+					+ formatador.format(funcionario.dataDeAposentadoria().getTime()));
+		}
+	}
+	public static void Bonificacoes(Funcionario[] funcionarios) {
+		System.out.println("Bonificações: \n ");
+		double valorTotalDeBonificacoes = 0;
+		for (Funcionario funcionario : funcionarios) {
+			System.out.println(funcionario.getNome()
+			+ ": "
+			+ funcionario.getBonificacao());
+			valorTotalDeBonificacoes += funcionario.getBonificacao();
+		}
+		System.out.println("Valor Total das Bonificações da Empresa: " + valorTotalDeBonificacoes);
 	}
 }
 
