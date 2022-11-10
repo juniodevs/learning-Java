@@ -11,7 +11,4 @@ public interface Colecao {
     public boolean ColecaoEstaVazia();
     public void ImprimirDadosColecao();
     public Pessoa retornarObjeto(int i);
-
-
-    
 }
