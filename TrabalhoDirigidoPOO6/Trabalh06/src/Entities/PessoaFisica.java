@@ -1,12 +1,12 @@
 package Entities;
 
 import java.util.GregorianCalendar;
-
+import java.util.Calendar;
+import java.util.Objects;
 
 public class PessoaFisica extends Pessoa {
     public String Cpf;
     public GregorianCalendar DatadeNascimento;
-
 
     public PessoaFisica()
     {
@@ -32,23 +32,26 @@ public class PessoaFisica extends Pessoa {
     public void setDatadeNascimento(GregorianCalendar datadeNascimento) {
         DatadeNascimento = datadeNascimento;
     }
-
-
-    public String toString()
-    {
-        return
-        "Nome: "
-        + Nome
-        + "Cpf: " 
-        + Cpf 
-        + "Data de Nascimento: " 
-        + DatadeNascimento;
-    }
-
-    //
+	@Override
+	public boolean equals(Object obj) {
+		PessoaFisica outros = (PessoaFisica) obj;
+		return Objects.equals(Cpf, outros.Cpf);
+	}
     @Override
     public int CalcularIdade() {
-        return 0;
+        GregorianCalendar dataDeHoje = (GregorianCalendar) Calendar.getInstance();
+		int DiaAtual = dataDeHoje.get(Calendar.DAY_OF_MONTH);
+        int MesAtual = dataDeHoje.get(Calendar.MONTH);
+        int AnoAtual = dataDeHoje.get(Calendar.YEAR);
+        int DiaDoAniversariio = DatadeNascimento.get(Calendar.DAY_OF_MONTH);
+		int MesDoAniversario = DatadeNascimento.get(Calendar.MONTH);
+        int AnoDoAniversario = DatadeNascimento.get(Calendar.YEAR);
+		int age = AnoAtual - AnoDoAniversario;
+		if (MesAtual < MesDoAniversario)
+			age--;
+		if (MesAtual == MesDoAniversario && DiaAtual < DiaDoAniversariio)
+			age--;
+		return age;
     }
 
     @Override
@@ -58,4 +61,24 @@ public class PessoaFisica extends Pessoa {
         else
         return false;
     }
+    @Override
+    public String toString()
+    {
+        return "Pessoa Juridica: " 
+        + "\nNome: " 
+        + getNome() 
+        + "\nCNPJ: " 
+        + getCpf() 
+        + "\nData de criação: " 
+        + DatadeNascimento.get(Calendar.DAY_OF_MONTH) 
+        + "/" 
+        + DatadeNascimento.get(Calendar.MONTH) 
+        + "/" 
+        + DatadeNascimento.get(Calendar.YEAR)
+        + "\nDocumento é valido?: " 
+        + ValidarDocumento()
+        + "\nIdade: " 
+        + CalcularIdade();
+    }
+
 }
