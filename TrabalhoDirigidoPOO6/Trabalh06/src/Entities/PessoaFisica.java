@@ -5,8 +5,8 @@ import java.util.Calendar;
 import java.util.Objects;
 
 public class PessoaFisica extends Pessoa {
-    public String Cpf;
-    public GregorianCalendar DatadeNascimento;
+    private String Cpf;
+    private GregorianCalendar DatadeNascimento;
 
     public PessoaFisica()
     {

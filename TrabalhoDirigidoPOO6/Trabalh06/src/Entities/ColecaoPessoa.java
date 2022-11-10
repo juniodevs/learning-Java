@@ -4,8 +4,8 @@ import Entities.Interface.Colecao;
 
 public class ColecaoPessoa implements Colecao {
 
-    public Pessoa[] Dados;
-    public int PosicaoCorrente;
+    private Pessoa[] Dados;
+    private int PosicaoCorrente;
 
     public ColecaoPessoa(Pessoa[] dados)
     {

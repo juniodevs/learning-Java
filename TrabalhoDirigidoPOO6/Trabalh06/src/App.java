@@ -11,16 +11,17 @@ public class App {
             pessoa[3] = new PessoaJuridica("WEBB CENTER", "45.405.216/0001-75", new GregorianCalendar(2003, 3, 5));
             pessoa[4] = new PessoaFisica("CHRISTIEBE CLERICE", "755.514.650-98", new GregorianCalendar(2005, 5, 2));
             pessoa[5] = new PessoaJuridica("WEBB CENTER", "45.405.216/0001-75", new GregorianCalendar(1995, 3, 1));
+
             ColecaoPessoa Dados = new ColecaoPessoa(pessoa);
+
             Dados.Inserir(new PessoaFisica("Christian Joabe", "794.474.000-27", new GregorianCalendar(2002, 3, 4)));
             Dados.Remover(0);
-            Dados.Atualizar(1, new PessoaFisica("Fernando", "911.961.730-52", new GregorianCalendar(1992, 11, 23)));
+            Dados.Atualizar(1, new PessoaFisica("Jonhatan", "262346246", new GregorianCalendar(1992, 11, 23)));
             System.out.println("A Pessoa foi Encontrada? " + Dados.Pesquisar(new PessoaFisica("Christian Joabe", "794.474.000-27", new GregorianCalendar(2002, 3, 4))));
             System.out.println("A Coleção está sem dados? " + Dados.ColecaoEstaVazia());
             Dados.ImprimirDadosColecao();
-            System.out.println("\nEssas Pessoas Físicas são iguais" + pessoa[0].equals(pessoa[1]));
-            System.out.println("Essas Pessoas Físicas são iguais" + pessoa[2].equals(pessoa[3]));
+            System.out.println("\nEssas Pessoas Físicas são iguais: " + pessoa[0].equals(pessoa[4]));
+            System.out.println("Essas Pessoas Físicas são iguais: " + pessoa[2].equals(pessoa[5]));
             System.out.println(Dados.retornarObjeto(3));
-        
     }
 }
