@@ -1,10 +1,10 @@
 package Entities;
 
+import java.util.ArrayList;
 
 public class Agenda {
     private String Nome;
-    private Contato[] contatos;
-
+    private ArrayList<Contato> Contatos;
 
     public Agenda()
     {
@@ -13,6 +13,7 @@ public class Agenda {
     {
         Nome = nome;
     }
+
     public String getNome() {
         return Nome;
     }
