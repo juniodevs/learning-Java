@@ -9,7 +9,7 @@ public class Contato {
     private Calendar DataNascimento;
 
     public Contato()
-    {    }
+    {}
 
     public Contato(String nome, String telefone, String observacoes, Calendar dataNascimento)
     {
