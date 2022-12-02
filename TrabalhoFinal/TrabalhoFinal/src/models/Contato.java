@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Calendar;
-
 import interfaces.ComunicacaoEmail;
 import interfaces.ComunicacaoTelefone;
 
@@ -63,6 +61,5 @@ public class Contato implements ComunicacaoTelefone, ComunicacaoEmail{
         System.out.println(telefone + " " + sms);
         System.out.println("Mensagem enviada com sucesso!"); 
     }
-
 }
 

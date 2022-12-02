@@ -19,9 +19,6 @@ public class App {
         // System.out.println();
         // agenda.fazerLigacao(contato1);
 
-
-
-
         Scanner scan = new Scanner(System.in);
         boolean status = true;
         int acao;
