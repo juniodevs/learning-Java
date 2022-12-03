@@ -1,11 +1,15 @@
 package models;
 
 import java.util.Scanner;
+
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class AgendaService {
     
     Scanner scan = new Scanner(System.in);
+
+
 
     public Contato cadastrarContatoService()
     {
@@ -37,7 +41,15 @@ public class AgendaService {
             String email = scan.nextLine();
             System.out.println("Digite as observações do contato: ");
             String observacoes = scan.nextLine();
-            Contato contato = new ContatoPessoal(apelido, nome, telefone, observacoes, email);
+            System.out.println("Digite a data de nascimento do contato: ");
+            System.out.println("Digite o dia: ");
+            int dia = scan.nextInt();
+            System.out.println("Digite o mês: ");
+            int mes = scan.nextInt();
+            System.out.println("Digite o ano: ");
+            int ano = scan.nextInt();
+            Calendar dataDeNascimento = new GregorianCalendar(ano, mes, dia);
+            Contato contato = new ContatoPessoal(apelido, nome, telefone, observacoes, email, dataDeNascimento);
             return contato;
         }
     }
@@ -70,8 +82,22 @@ public class AgendaService {
             String email = scan.nextLine();
             System.out.println("Digite as observações do contato: ");
             String observacoes = scan.nextLine();
-            Contato contatoEditado = new ContatoPessoal(apelido, nome, telefone, observacoes, email);
+
+
+            System.out.println("Digite a data de nascimento do contato: ");
+            System.out.println("Digite o dia: ");
+            int dia = scan.nextInt();
+            System.out.println("Digite o mês: ");
+            int mes = scan.nextInt();
+            System.out.println("Digite o ano: ");
+            int ano = scan.nextInt();
+            Calendar dataDeNascimento = Calendar.getInstance();
+            dataDeNascimento.set(ano, mes, dia);
+
+            Contato contatoEditado = new ContatoPessoal(apelido, nome, telefone, observacoes, email, dataDeNascimento);
             return contatoEditado;
         }
     }
+
+    
 }

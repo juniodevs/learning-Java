@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Calendar;
+
 import interfaces.ComunicacaoEmail;
 import interfaces.ComunicacaoTelefone;
 
@@ -8,6 +10,7 @@ public class Contato implements ComunicacaoTelefone, ComunicacaoEmail{
     private String telefone;
     private String observacoes;
     private String email;
+    private Calendar data;
 
     public Contato(String nome, String telefone, String observacoes, String email) {
         this.nome = nome;
@@ -48,6 +51,14 @@ public class Contato implements ComunicacaoTelefone, ComunicacaoEmail{
         this.email = email;
     }
 
+    public Calendar getData() {
+        return data;
+    }
+
+    public void setData(Calendar data) {
+        this.data = data;
+    }
+
     @Override
     public void enviarEmail(String email, String mensagem) {
         System.out.println("Enviando email para " + email + " com a mensagem: " + mensagem);
@@ -60,6 +71,19 @@ public class Contato implements ComunicacaoTelefone, ComunicacaoEmail{
     public void enviarSMS(String telefone, String sms) {
         System.out.println(telefone + " " + sms);
         System.out.println("Mensagem enviada com sucesso!"); 
+    }
+
+    @Override
+    public String toString() {
+        return "Contato:\n" 
+        + "Nome:" + nome 
+        + "\nTelefone:" 
+        + telefone 
+        + "\nObservações:" 
+        + observacoes 
+        + "\nEmail:" 
+        + email 
+        + "\n";
     }
 }
 
