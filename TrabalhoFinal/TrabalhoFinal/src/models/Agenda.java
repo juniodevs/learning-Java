@@ -1,9 +1,6 @@
 package models;
 import java.util.ArrayList;
 import java.util.Calendar;
-import models.Contato;
-import models.ContatoComercial;
-import models.ContatoPessoal;
 import Exceptions.CustomException;
 import java.util.GregorianCalendar;
 
