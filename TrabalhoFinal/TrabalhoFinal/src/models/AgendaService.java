@@ -1,18 +1,20 @@
 package models;
 
 import java.util.Scanner;
-
+import javax.xml.transform.SourceLocator;
+import Exceptions.CustomException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import models.Contato;
+import models.Agenda;
 
 public class AgendaService {
-    
+    Agenda agenda = new Agenda();
     Scanner scan = new Scanner(System.in);
+    public Contato cadastrarContatoService() throws CustomException
+    {  
+        agenda.limiteDeContatos();
 
-
-
-    public Contato cadastrarContatoService()
-    {
         System.out.println("A Conta é Empresarial? (S/N)");
         String resposta = scan.nextLine();
         if(resposta.equals("S")){
@@ -98,6 +100,5 @@ public class AgendaService {
             return contatoEditado;
         }
     }
-
     
 }

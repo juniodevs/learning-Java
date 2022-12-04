@@ -2,6 +2,9 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
+
+import Exceptions.CustomException;
 import models.Agenda;
 import models.Contato;
 import models.ContatoPessoal;
@@ -53,7 +56,12 @@ public class App {
         }
         switch(acao){
             case 1: 
+            try{  
             agenda.adicionarContato(new AgendaService().cadastrarContatoService());
+            }
+            catch(CustomException e){
+                System.out.println(e.getMessage());
+            }
             break;
             case 2:
                 System.out.println("LISTA DE CONTATOS");
@@ -84,15 +92,9 @@ public class App {
                 break;
             case 5:
                 System.out.println("BUSCAR CONTATO");
-                System.out.println("Digite o nome do contato que deseja buscar");   
+                System.out.println("Digite o nome do contato que deseja buscar");
                 String nomeBuscar = scan.next();
-                Contato contatoBuscar = agenda.buscarContato(nomeBuscar);
-                if(contatoBuscar != null){
-                    System.out.println("Contato encontrado");
-                    System.out.println(contatoBuscar);
-                }else{
-                    System.out.println("Contato não encontrado");
-                }
+                agenda.buscarContato(nomeBuscar);
                 break;
             case 6:
                 try{
