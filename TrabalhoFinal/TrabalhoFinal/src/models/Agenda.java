@@ -51,6 +51,38 @@ public class Agenda {
         return null;
     }
 
+    public void pessoaMaisVelha()
+    {
+        int idade = 0;
+        int index = 0;
+        for (int i = 0; i < listaContatos.size(); i++) {
+            if (listaContatos.get(i) instanceof ContatoPessoal) {
+                ContatoPessoal contato = (ContatoPessoal) listaContatos.get(i);
+                if (idade < contato.getIdade()) {
+                    idade = contato.getIdade();
+                    index = i;
+                }
+            }
+        }
+        System.out.println("A pessoa mais velha é: " + listaContatos.get(index).getNome());
+    }
+
+    public void pessoaMaisNova()
+    {
+        int idade = 1000;
+        int index = 0;
+        for (int i = 0; i < listaContatos.size(); i++) {
+            if (listaContatos.get(i) instanceof ContatoPessoal) {
+                ContatoPessoal contato = (ContatoPessoal) listaContatos.get(i);
+                if (idade > contato.getIdade()) {
+                    idade = contato.getIdade();
+                    index = i;
+                }
+            }
+        }
+        System.out.println("A pessoa mais nova é: " + listaContatos.get(index).getNome());
+    }
+
     public Contato buscarContato(String nome) { // Método para buscar um contato
         Scanner scan = new Scanner(System.in);
         System.out.println("Você deseja imprimir todos os dados? (S/N)");
@@ -70,6 +102,15 @@ public class Agenda {
                     System.out.println(contato.getEmail());
                     System.out.println("--------------------------------------------------");
                 }
+            }
+        }
+        return null; // Retorna null caso o contato não seja encontrado
+    }
+
+    public Contato buscarContatoParaMesagem(String nome) { // Método para buscar um contato para enviar uma mensagem
+        for (Contato contato : listaContatos) {
+            if (contato.getNome().equals(nome)) {
+                return contato;
             }
         }
         return null; // Retorna null caso o contato não seja encontrado
