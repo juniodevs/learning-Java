@@ -24,6 +24,21 @@ public class ContatoPessoal extends Contato{
         return null;
     }
 
+    public int getIdade()
+    {
+        Calendar dataAtual = new GregorianCalendar();
+        int idade = dataAtual.get(Calendar.YEAR) - data.get(Calendar.YEAR);
+        if (dataAtual.get(Calendar.MONTH) < data.get(Calendar.MONTH))
+        {
+            idade--;
+        }
+        else if (dataAtual.get(Calendar.MONTH) == data.get(Calendar.MONTH) && dataAtual.get(Calendar.DAY_OF_MONTH) < data.get(Calendar.DAY_OF_MONTH))
+        {
+            idade--;
+        }
+        return idade;
+    }
+
     public String getApelido() {
         return apelido;
     }
