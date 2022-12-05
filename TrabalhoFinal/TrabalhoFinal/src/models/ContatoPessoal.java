@@ -16,7 +16,7 @@ public class ContatoPessoal extends Contato{
     }
 
     public CustomException validarData() throws CustomException
-    {
+    { // Valida a data de nascimento
         if (data.after(new GregorianCalendar().getTime()))
         {
             throw new CustomException("Data de Nascimento Inválida");
@@ -43,14 +43,14 @@ public class ContatoPessoal extends Contato{
         this.data = data;
     }
 
-    public String getDataFormated(Calendar data) {
+    public String getDataFormated(Calendar data) { // Formata a DATA para String
         return data.get(Calendar.DAY_OF_MONTH) 
         + "/" + data.get(Calendar.MONTH) 
         + "/" + data.get(Calendar.YEAR);
     }
 
     @Override
-    public String toString() {
+    public String toString() { // Formata a saída do objeto para String
         return super.toString() 
         + "Apelido: " 
         + this.apelido
