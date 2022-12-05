@@ -12,6 +12,7 @@ import models.AgendaService;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        
         // Agenda agenda = new Agenda();
 
         // Contato contato1 = new ContatoPessoal("João", "999999999", "2222222", " ", null, "DAVYGOMES@GMAIL.COM");
@@ -46,6 +47,7 @@ public class App {
         System.out.println("4 - Remover Contato");
         System.out.println("5 - Buscar Contato");
         System.out.println("6 - Buscar Contato por Data");
+        System.out.println("7 - Pessoa mais Velha da Agenda");
 
         try{
         acao = scan.nextInt();
