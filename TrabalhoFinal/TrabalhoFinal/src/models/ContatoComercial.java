@@ -41,14 +41,14 @@ public class ContatoComercial extends Contato {
         this.data = dataDeCriacao;
     }
 
-    public String getDataFormated(Calendar dataDeCriacao) {
+    public String getDataFormated(Calendar dataDeCriacao) { // Formata a DATA para String
         return dataDeCriacao.get(Calendar.DAY_OF_MONTH) 
         + "/" + dataDeCriacao.get(Calendar.MONTH) 
         + "/" + dataDeCriacao.get(Calendar.YEAR);
     }
 
     @Override
-    public String toString() {
+    public String toString() { // Formata a saída do objeto para String
         return super.toString() 
         + "\nCNPJ: " 
         + this.cnpj 
