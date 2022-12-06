@@ -87,7 +87,7 @@ public class Agenda {
         Scanner scan = new Scanner(System.in);
         System.out.println("Você deseja imprimir todos os dados? (S/N)");
         String resposta = scan.nextLine();
-        if (resposta.equals("S")) { // Se a resposta for sim, imprime todos os dados
+        if (resposta.equals("S") || resposta.equals("Sim") ||resposta.equals("s")) { // Se a resposta for sim, imprime todos os dados
                 for (Contato contatos : listaContatos) {
                     if (contatos.getNome().equals(nome)) {
                         System.out.println(contatos.toString());
