@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutionException;
 import Exceptions.CustomException;
 import models.Agenda;
 import models.Contato;
+import models.ContatoComercial;
 import models.ContatoPessoal;
 import models.AgendaService;
 
@@ -35,12 +36,16 @@ public class App {
         Contato contato1 = new ContatoPessoal("Joao", "Joao", "222222222", "Ele e gente boa", "Joao@gmail", data1);
         Contato contato2 = new ContatoPessoal("Maria", "Maria", "333333333", "Ela e gente boa", "Maria@gmail", data2);
         Contato contato3 = new ContatoPessoal("Maria", "Maria", "333333333", "Ela e gente boa", "Maria@gmail", data2);
+        Contato contato4 = new ContatoComercial("WEBB", "99399999", "CENTRO DE PESQUISAS", "WEBBCENTER@GMAIL.COM", "22222222222", data2);
+
 
         agenda.adicionarContato(contato1); // Adiciona um contato manual
         agenda.adicionarContato(contato2); // Adiciona um contato manual
         agenda.adicionarContato(contato3); // Adiciona um contato manual
+        agenda.adicionarContato(contato4); // Adiciona um contato manual
 
         while(status){
+        System.out.println("---------------------------------");
         System.out.println("Menu de Agenda!");
         System.out.println("1 - Cadastrar Contato");
         System.out.println("2 - Mostrar Contatos");
@@ -53,6 +58,8 @@ public class App {
         System.out.println("9 - Enviar Email");
         System.out.println("10 - Fazer Ligação");
         System.out.println("11 - Sair");
+        System.out.println("---------------------------------");
+        System.out.print("Digite a opção desejada: ");
 
         try{
         acao = scan.nextInt();
@@ -77,9 +84,8 @@ public class App {
             case 3: // Editar Contato
                 System.out.println("EDITAR CONTATO");
                 System.out.println("Digite o nome do contato que deseja editar");
-
                 String nome = scan.next();
-                Contato contatoAntigo = agenda.buscarContato(nome);
+                Contato contatoAntigo = agenda.buscarContatoParaMesagem(nome);
                 if(contatoAntigo != null){
                     agenda.editarContato(contatoAntigo, new AgendaService().editarContatoService(contatoAntigo));
                 }else{
