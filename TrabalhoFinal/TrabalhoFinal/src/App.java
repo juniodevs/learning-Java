@@ -1,8 +1,6 @@
-import java.text.ParseException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
 
 import Exceptions.CustomException;
 import models.Agenda;
@@ -178,7 +176,7 @@ public class App {
                 break;
             case 11:
                 status = false;
-                System.out.println("1");
+                System.out.println("Saindo...");
                 break;
         }
     }

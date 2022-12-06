@@ -62,14 +62,16 @@ public class Contato implements ComunicacaoTelefone, ComunicacaoEmail{
     @Override
     public void enviarEmail(String email, String mensagem) { // Envia um email
         System.out.println("Enviando email para " + email + " com a mensagem: " + mensagem);
+        System.out.println("Email enviado com sucesso!");
     }
     @Override
     public void ligar(String telefone) { // Faz uma ligação
         System.out.println("Ligando para " + telefone);
+        System.out.println("Ligação realizada com sucesso!");
     }
     @Override
     public void enviarSMS(String telefone, String sms) { // Envia um SMS
-        System.out.println(telefone + " " + sms);
+        System.out.println("Enviando SMS para " + telefone + " com a mensagem: " + sms);
         System.out.println("Mensagem enviada com sucesso!"); 
     }
 
