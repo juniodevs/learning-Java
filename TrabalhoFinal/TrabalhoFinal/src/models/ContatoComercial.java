@@ -50,7 +50,7 @@ public class ContatoComercial extends Contato {
     @Override
     public String toString() { // Formata a saída do objeto para String
         return super.toString() 
-        + "\nCNPJ: " 
+        + "CNPJ: " 
         + this.cnpj 
         + "\nData de criação: " 
         + getDataFormated(data);
