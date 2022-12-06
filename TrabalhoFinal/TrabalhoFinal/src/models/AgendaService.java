@@ -52,6 +52,9 @@ public class AgendaService {
     }
 
     public Contato editarContatoService(Contato contato){ // Edita um contato
+        System.out.println("--------------------");
+        System.out.println("EDITANDO CONTATO " + contato.getNome());
+        System.out.println("--------------------");
         if(contato instanceof ContatoComercial){ // Se o contato for empresarial, edita um contato empresarial
             System.out.println("Digite o nome do contato: ");
             String nome = scan.nextLine();
@@ -70,7 +73,7 @@ public class AgendaService {
         else{ // Se o contato for pessoal, edita um contato pessoal
             System.out.println("Digite o Apelido do Contato");
             String apelido = scan.nextLine();
-            System.out.println("Digite o nome do contato: ");
+            System.out.println("Digite o Nome do contato: ");
             String nome = scan.nextLine();
             System.out.println("Digite o telefone do contato: ");
             String telefone = scan.nextLine();
