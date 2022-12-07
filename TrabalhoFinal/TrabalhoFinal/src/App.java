@@ -33,7 +33,7 @@ public class App {
 
         Contato contato1 = new ContatoPessoal("Joao", "Joao", "222222222", "Ele e gente boa", "Joao@gmail", data1);
         Contato contato2 = new ContatoPessoal("Maria", "Maria", "333333333", "Ela e gente boa", "Maria@gmail", data2);
-        Contato contato3 = new ContatoPessoal("Maria", "Maria", "333333333", "Ela e gente boa", "Maria@gmail", data2);
+        Contato contato3 = new ContatoPessoal("Josue", "Josue", "333333333", "Ela e gente boa", "Maria@gmail", data2);
         Contato contato4 = new ContatoComercial("WEBB", "99399999", "CENTRO DE PESQUISAS", "WEBBCENTER@GMAIL.COM", "22222222222", data2);
 
 
@@ -94,9 +94,10 @@ public class App {
                 System.out.println("REMOVER CONTATO");
                 System.out.println("Digite o nome do contato que deseja remover");
                 String nomeRemover = scan.next();
-                Contato contatoRemover = agenda.buscarContato(nomeRemover);
+                Contato contatoRemover = agenda.buscarContatoParaMesagem(nomeRemover);
                 if(contatoRemover != null){
                     agenda.removerContato(contatoRemover);
+                    System.out.println("Contato removido com sucesso");
                 }else{
                     System.out.println("Contato não encontrado");
                 }
