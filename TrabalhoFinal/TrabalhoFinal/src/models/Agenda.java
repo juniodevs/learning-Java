@@ -51,6 +51,16 @@ public class Agenda {
         return null;
     }
 
+    public Calendar validarData(int dia, int mes, int ano) throws CustomException
+    {
+        Calendar data = new GregorianCalendar(ano, mes, dia);
+        if (data.after(new GregorianCalendar()))
+        {
+            throw new CustomException("Data de nascimento inválida");
+        }
+        return data;
+    }
+
     public void pessoaMaisVelha()
     {
         int idade = 0;

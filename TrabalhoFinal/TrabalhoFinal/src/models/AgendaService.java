@@ -45,8 +45,11 @@ public class AgendaService {
             int mes = scan.nextInt();
             System.out.println("Digite o ano: ");
             int ano = scan.nextInt();
-            Calendar dataDeNascimento = new GregorianCalendar(ano, mes, dia);
+            Calendar dataDeNascimento = agenda.validarData(dia, mes, ano);
             Contato contato = new ContatoPessoal(apelido, nome, telefone, observacoes, email, dataDeNascimento);
+
+
+
             return contato;
         }
     }

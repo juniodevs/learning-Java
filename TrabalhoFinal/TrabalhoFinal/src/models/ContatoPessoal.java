@@ -1,6 +1,5 @@
 package models;
 
-import Exceptions.CustomException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -13,15 +12,6 @@ public class ContatoPessoal extends Contato{
         super(nome,  telefone, observacoes, email);
         this.apelido = apelido;
         this.data = dataDeNascimento;
-    }
-
-    public CustomException validarData() throws CustomException
-    { // Valida a data de nascimento
-        if (data.after(new GregorianCalendar().getTime()))
-        {
-            throw new CustomException("Data de Nascimento Inválida");
-        }
-        return null;
     }
 
     public int getIdade()
