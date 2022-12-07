@@ -3,7 +3,6 @@ package models;
 import java.util.Scanner;
 import Exceptions.CustomException;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class AgendaService {
     Agenda agenda = new Agenda();
@@ -47,9 +46,6 @@ public class AgendaService {
             int ano = scan.nextInt();
             Calendar dataDeNascimento = agenda.validarData(dia, mes, ano);
             Contato contato = new ContatoPessoal(apelido, nome, telefone, observacoes, email, dataDeNascimento);
-
-
-
             return contato;
         }
     }
@@ -93,7 +89,6 @@ public class AgendaService {
             int ano = scan.nextInt();
             Calendar dataDeNascimento = Calendar.getInstance();
             dataDeNascimento.set(ano, mes, dia);
-
             Contato contatoEditado = new ContatoPessoal(apelido, nome, telefone, observacoes, email, dataDeNascimento);
             return contatoEditado; // Retorna o contato editado
         }
