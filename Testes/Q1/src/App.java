@@ -11,7 +11,6 @@ public class App {
         double resultado = 0.0;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Digite a Entrada");
         int N = sc.nextInt();
         int i = 0;
         while(i < N){
