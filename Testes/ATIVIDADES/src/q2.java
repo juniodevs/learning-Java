@@ -13,5 +13,7 @@ public class q2 {
             }
         }
         System.out.println(nstr);
+
+        sc.close();
     }
 }
